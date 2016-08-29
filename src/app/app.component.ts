@@ -17,7 +17,7 @@ export class AppComponent {
   year: any;
   //@Input() year: number;
   //public val: number;
-  inputValue: any;
+  inputValue: any= 1000;
 
 
 
