@@ -1,44 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+//import EventEmitter = protractor.EventEmitter;
 
 @Component({
   moduleId: module.id,
   selector: 'app-sidebar',
   templateUrl: 'sidebar.component.html',
-  styleUrls: ['sidebar.component.css']
+  styleUrls: ['sidebar.component.css'],
+
 })
 export class SidebarComponent {
-  //@Input() item: any;
-  item: any;
-  public data: any[];
- // account: string;
-  //name: string;
-  //private i: number;
- // month: number;
-  //year: number;
+  @Input() data:any[];
+  @Input() item: any = {};
 
+  month: any;
+  year: any;
+  account: any;
+  @Output() getted = new EventEmitter();
 
-  constructor() {
-    this.data = [
-      {account: '11970', name: 'Galax', multiplier: 1.265, perYear: 2.7},
-      {account: '7348', name: 'Veronica', multiplier: 1.12, perYear: 2.0},
-      {account: '10555', name: 'Dragonfly', multiplier: 1.023, perYear: 1.796},
-      {account: '10504', name: 'Condor', multiplier: 1.04, perYear: 1.81},
-      {account: '10469', name: 'Shark_007', multiplier: 1.17, perYear: 2.13},
-      
-
-    ];
-    // this.account = this.data.account;
-
+   constructor() {
 
   }
 
   ngOnInit() {
   }
+  getData(item){
+    //this.month = (item.multiplier);
+    //this.year = (item.perYear);
+    this.account = (item.account);
 
-  /*getAccount(){
-   for(let i=0; i<data.length; i++){
-
-   }
-   }*/
+    //console.log(this.month);
+    //console.log(this.year);
+    console.log('clicked', this.account);
+    this.getted.emit({item: this.item});
+  }
 
 }

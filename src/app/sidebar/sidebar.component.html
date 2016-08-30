@@ -3,7 +3,7 @@
     <span class = "block__sidebar__header__list">№ счета&nbsp;</span>&nbsp;
     <span class = "block__sidebar__item__name">Управляющий</span>
   </div>
-  <div id = "account1" class = "block__sidebar__item" *ngFor="let item of data">
+  <div id = "account1" class = "block__sidebar__item" *ngFor="let item of data" (click)="getData(item)">
     <span class = "block__sidebar__item__list">{{item.account}}&nbsp;</span>&nbsp;
     <span class = "block__sidebar__item__name">{{item.name}}&nbsp;</span>
   </div>
